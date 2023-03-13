@@ -1,0 +1,50 @@
+/* Base HTML Components */
+.page-container {
+    background-color: rgba(255, 255, 255, 0.911);
+    margin: 7% 15% 7% 15%;
+    border-radius: 20px;
+    min-width: 210px;
+}
+
+.lang-container {
+    display: flex;
+    margin-left: 85%;
+}
+
+.lang-item {
+    padding: 5%;
+    font-size: 1.8vw;
+}
+
+a {
+    color: rgba(7, 7, 7, 0.377);
+    text-decoration:none;
+}
+
+a:hover {
+    color: rgba(0, 0, 0, 0.76);
+    text-decoration:none;
+}
+
+/* Title */
+
+.title-container {
+    display: -webkit-inline-box;
+}
+
+.form-title {
+    font-size: 4vw;
+    font-family: 'Patua One', cursive;
+
+}
+
+.img-title {
+    margin:auto;
+    padding-left: 4%;
+}
+
+.about-text {
+    text-align: justify;
+    padding: 3% 10% 3% 10%;
+    font-size: 1.2vw;
+}
