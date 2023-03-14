@@ -15,5 +15,131 @@
     <h4 class="about-text">
         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
     </h4>
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('home_en') }}" novalidate>
+            {{ form.csrf_token }}
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.purpose.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.purpose(class_='form-control', style="width:50%;") }} 
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.purpose_other.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.purpose_other(class_='form-control') }} 
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.hours_per_week.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.hours_per_week(class_='form-control', style="width:20%;") }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.site_remote.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.site_remote(class_='form-control', style="width:30%;") }} 
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.distance_onsite.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.distance_onsite(class_='form-control', style="width:30%;") }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.subject.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.subject(class_='form-control', style="width:60%;") }}
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.subject_other.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.subject_other(class_='form-control') }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.pay.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.pay(class_='form-control', style="width:20%;") }}
+                </p>
+            </div> 
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.pay_how_much.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.pay_how_much(class_='form-control') }}
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.pay_how_much_other.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.pay_how_much_other(class_='form-control') }}
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%; text-align:left;">
+                <p class = "labels-container">
+                    {{ form.pay_premium.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.pay_premium(class_='form-control', style="width:20%;") }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.when.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.when(class_='form-control', style="width:50%;") }}
+                </p>
+            </div>
+            <div class="question-container" style="margin-left: 2%;">
+                <p class = "labels-container">
+                    {{ form.when_hours.label(class_='labels-lower') }} 
+                    <br> 
+                    {{ form.when_hours(class_='form-control') }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.age.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.age(class_='form-control', style="width:50%;") }}
+                </p>
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.location.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.location(class_='form-control', style="width:50%;") }}
+                </p>
+            </div>
+            <div class="question-container" style="text-align:left;">
+                <p class = "labels-container">
+                    {{ form.email.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.email(class_='form-control', style="width:50%;") }}
+                    <span class= 'error'>{{ form.email.errors.0 }}</span>
+                </p>
+            </div> 
+            <div class="submit-container" style="justify-content: center;">
+                {{ form.submit(class_= 'btn btn-info submit') }}
+            </div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <span class= 'error-2' style="justify-content: center;">{{ messages.0.1 }}</span>
+            {% endif %}
+        {% endwith %}                                                                                                                                                                                                                                
+        </form>
+    </div>
 </div>
 {%endblock%}

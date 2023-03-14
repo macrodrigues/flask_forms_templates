@@ -48,3 +48,85 @@ a:hover {
     padding: 3% 10% 3% 10%;
     font-size: 1.2vw;
 }
+
+.form-container {
+    margin: 0% 10% 0% 10%;
+}
+
+.question-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.labels-container {
+    margin: 1% 2% 0%;
+}
+
+.labels-higher {
+    font-size: 1.8vw;
+    padding-top: 5%;
+    font-family: 'Patua One', cursive;  
+}
+
+.labels-lower{
+    font-size: 1.3vw;
+    font-family: 'Patua One', cursive;
+    color: dimgray;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #ffffff81;
+    background-clip: padding-box;
+    border: 1px solid #d6d6d600;
+    border-radius: 0.25rem;
+    box-shadow:0 0 3px #8585854f;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+    background-color: #98d9f32d;
+    box-shadow:0 0 3px #3a92b4;
+}
+
+.submit-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    margin-top: 5%;
+    padding-bottom: 2%
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #3a92b4;
+    border-color: #3a92b4;
+}
+
+.error {
+    color: rgba(255, 51, 0, 0.625);
+    margin-top: 1px;
+    font-size: 10px;
+}
+
+.error-2 {
+    color: rgba(255, 51, 0, 0.625);
+    margin-top: 1px;
+    font-size: 10px;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 5%;
+}
+
