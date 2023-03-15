@@ -1,145 +1,145 @@
 {% extends 'base_python.html' %}
 
 {%block title%}
-    <title>Python Classes</title>
+    <title>Aulas de Python</title>
 {%endblock%}
+
 {%block form%}
 <div style="text-align:center;">
     <div class="title-container">
-        <h1 class="form-title">Python Classes</h1>
+        <h1 class="form-title">Aulas de Python</h1>
         <div class= "img-title">
             <img src="static/images/python-logo.png" alt="" width="60vw" height="60vw" >
         </div>
     </div>
     <h4 class="about-text">
-        If you are here, it is likely that your interest lies in attending Python Classes. By taking this survey, you enable to conduct a comprehensive market study on Python Classes within the region of <span style="font-weight: 700;">Portalegre, Portugal</span>, as well as certain locales in Spain, including <span style="font-weight: 700;">Valencia de Alcántara, San Vicente de Alcántara, La Codosera and Albuquerque</span>. Even if you do not reside within this area, rest assured that you may still participate remotely. <span style="color:rgb(187, 37, 37); font-weight: 700;">Your anonymity is assured</span>, and no personal data is required for this survey.
+        Se estás aqui, significa que tens algum interesse em frequentar aulas de Python. Este inquérito permitirá conduzir um estudo de mercado sobre a possibilidade de se introduzir aulas de Python na região de <span style="font-weight: 700;">Portalegre, Portugal</span>, e em alguns lugares de Espanha, como <span style="font-weight: 700;">Valencia de Alcántara, San Vicente de Alcántara, La Codosera e Albuquerque</span>. Se não estiveres dentro desta região, não te preocupes, ainda podes preencher o formulário, pois podes-te inscrever remotamente. <span style="color:rgb(187, 37, 37); font-weight: 700;">Este inquérito é anónimo</span>, e não requer dados pessoais.
     </h4>
     <div class="form-container">
-        <form method="POST" enctype="multipart/form-data" action="{{ url_for('home_en') }}" novalidate>
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('home_pt') }}" novalidate>
             {{ form.csrf_token }}
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.purpose.label(class_='labels-higher') }} 
+                    {{ form.purpose_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.purpose(class_= 'ul-custom') }}
-                    <span class= 'error'>{{ form.purpose.errors.0 }}</span>  
+                    {{ form.purpose_pt(class_= 'ul-custom') }} 
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.purpose_other.label(class_='labels-lower') }} 
+                    {{ form.purpose_other_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.purpose_other(class_='form-control', style="width:50%;") }} 
+                    {{ form.purpose_other_pt(class_='form-control', style="width:50%;") }} 
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.hours_per_week.label(class_='labels-higher') }} 
+                    {{ form.hours_per_week_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.hours_per_week(class_= 'ul-custom') }}
+                    {{ form.hours_per_week_pt(class_= 'ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.site_remote.label(class_='labels-higher') }} 
+                    {{ form.site_remote_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.site_remote(class_='ul-custom') }} 
+                    {{ form.site_remote_pt(class_='ul-custom') }} 
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.distance_onsite.label(class_='labels-lower') }} 
+                    {{ form.distance_onsite_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.distance_onsite(class_='ul-custom') }}
+                    {{ form.distance_onsite_pt(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.subject.label(class_='labels-higher') }} 
+                    {{ form.subject_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.subject(class_='ul-custom') }}
+                    {{ form.subject_pt(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.subject_other.label(class_='labels-lower') }} 
+                    {{ form.subject_other_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.subject_other(class_='form-control', style="width:50%;") }}
+                    {{ form.subject_other_pt(class_='form-control', style="width:50%;") }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.pay.label(class_='labels-higher') }} 
+                    {{ form.pay_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.pay(class_='form-control', style="width:20%;") }}
+                    {{ form.pay_pt(class_='form-control', style="width:20%;") }}
                 </p>
             </div> 
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.pay_how_much.label(class_='labels-lower') }} 
+                    {{ form.pay_how_much_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.pay_how_much(class_='ul-custom') }}
+                    {{ form.pay_how_much_pt(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.pay_how_much_other.label(class_='labels-lower') }} 
+                    {{ form.pay_how_much_other_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.pay_how_much_other(class_='form-control', style="width:50%;") }}
+                    {{ form.pay_how_much_other_pt(class_='form-control', style="width:50%;") }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.pay_premium.label(class_='labels-lower') }} 
+                    {{ form.pay_premium_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.pay_premium(class_='form-control', style="width:20%;") }}
+                    {{ form.pay_premium_pt(class_='form-control', style="width:20%;") }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.when.label(class_='labels-higher') }} 
+                    {{ form.when_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.when(class_='ul-custom') }}
+                    {{ form.when_pt(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.when_hours.label(class_='labels-lower') }} 
+                    {{ form.when_hours_pt.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.when_hours(class_='ul-custom') }}
+                    {{ form.when_hours_pt(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.age.label(class_='labels-higher') }} 
+                    {{ form.age_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.age(class_='form-control', style="width:20%;") }}
+                    {{ form.age_pt(class_='form-control', style="width:20%;") }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.location.label(class_='labels-higher') }} 
+                    {{ form.location_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.location(class_='form-control', style="width:50%;") }}
+                    {{ form.location_pt(class_='form-control', style="width:50%;") }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.email.label(class_='labels-higher') }} 
+                    {{ form.email_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.email(class_='form-control', style="width:50%;") }}
+                    {{ form.email_pt(class_='form-control', style="width:50%;") }}
                     <span class= 'error'>{{ form.email.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
-                    {{ form.observations.label(class_='labels-higher') }} 
+                    {{ form.observations_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.observations(class_='form-control', style="width:50%;") }}
+                    {{ form.observations_pt(class_='form-control', style="width:50%;") }}
                 </p>
-            </div>                       
+            </div>                          
             <div class="submit-container" style="justify-content: center;">
-                {{ form.submit(class_= 'btn btn-info submit') }}
+                {{ form.submit_pt(class_= 'btn btn-info submit') }}
             </div>
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

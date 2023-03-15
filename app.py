@@ -1,16 +1,16 @@
+"""Launch the templates on a Flask server."""
 import os
 import datetime as dt
 from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
-# from flask_mail import Message
 from forms.form_python_classes.form_python_classes import PythonClassesForm
-from forms.form_photography.form_photography import PhotographyForm
-from forms.form_services.form_services import ServicesForm
+import dotenv
 
+dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
-app.secret_key = "thisisasecretkey"   # You can use a random key
+app.secret_key = os.getenv('SECRET_KEY')   # You can use a random key
 app.config['UPLOAD_FOLDER'] = os.path.dirname(
     os.path.abspath(__file__))  # to add attachments
 app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
@@ -32,23 +32,22 @@ def send_email_results():
 def render_page(lang, html):
     """Render page. Takes the language and html file as inputs."""
     form = PythonClassesForm()
+    lang_dict = {
+        'pt': "success_pt.html",
+        'en': "success_en.html",
+        'es': "success_es.html"}
+    lang_error_dict = {
+        'pt': "Alguns campos estão incompletos ou em falta.",
+        'en': "Some fields are incomplete or missing.",
+        'es': "Algunos campos están incompletos o faltan."}
     current_year = dt.datetime.now().year
     if form.is_submitted():  # if form is submitted
+        print(form.purpose.data)
         if form.validate():  # if form is validated
             send_email_results()
-            if lang == "pt":
-                return render_template("success_pt.html")
-            if lang == "en":
-                return render_template("success_en.html")
-            if lang == "es":
-                return render_template("success_es.html")
+            return render_template(lang_dict[lang])
         else:
-            if lang == "pt":
-                flash('*Alguns campos estão incompletos ou em falta.')
-            if lang == "en":
-                flash('*Some fields are incomplete or missing.')
-            if lang == "es":
-                flash('*Algunos campos están incompletos o faltan.')
+            flash(lang_error_dict[lang])
     return render_template(html, year=current_year, form=form)
 
 
@@ -58,17 +57,17 @@ def home_en():
     return render_page('en', 'index_python_en.html')
 
 
-# @app.route("/pt", methods=["GET", "POST"])
-# def home_pt():
-#     """Render the html in portuguese language."""
-#     return render_page('pt', html_pt)
+@app.route("/pt", methods=["GET", "POST"])
+def home_pt():
+    """Render the html in portuguese language."""
+    return render_page('pt', 'index_python_pt.html')
 
 
-# @app.route("/es", methods=["GET", "POST"])
-# def home_es():
-#     """Render the html in spanish language."""
-#     return render_page('es', html_es)
+@app.route("/es", methods=["GET", "POST"])
+def home_es():
+    """Render the html in spanish language."""
+    return render_page('es', 'index_python_es.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=7000)
+    app.run(port=7000)

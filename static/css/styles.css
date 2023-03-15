@@ -45,8 +45,9 @@ a:hover {
 
 .about-text {
     text-align: justify;
-    padding: 3% 10% 3% 10%;
-    font-size: 1.2vw;
+    padding: 3% 12% 0% 12%;
+    font-size: 1.4vw;
+    font-family: 'Heebo', sans-serif;
 }
 
 .form-container {
@@ -89,7 +90,7 @@ a:hover {
     background-clip: padding-box;
     border: 1px solid #d6d6d600;
     border-radius: 0.25rem;
-    box-shadow:0 0 3px #8585854f;
+    box-shadow:0 0 2px #858585ad;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -118,6 +119,7 @@ a:hover {
     color: rgba(255, 51, 0, 0.625);
     margin-top: 1px;
     font-size: 10px;
+    margin-left: 5%;
 }
 
 .error-2 {

@@ -1,9 +1,10 @@
+"""Script with the class for the Python Classes Form."""
 import json
 import os
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms import TextAreaField, SelectField, SelectMultipleField, widgets
-from wtforms.validators import DataRequired, Email, Regexp
+from wtforms.validators import Regexp, DataRequired
 
 PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -99,7 +100,9 @@ class PythonClassesForm(FlaskForm):
             data["purpose"]["Work"][0],
             data["purpose"]['Personal Projects'][0],
             data["purpose"]['Curiosity'][0],
-            data["purpose"]['Other'][0]])
+            data["purpose"]['Other'][0]],
+        validators=[
+            DataRequired(message="At least one option must be selected")])
     purpose_pt = MultiCheckboxField(
         '1. Com que objectivo gostarias de aprender Python?',
         choices=[
@@ -108,20 +111,20 @@ class PythonClassesForm(FlaskForm):
             data["purpose"]['Curiosity'][1],
             data["purpose"]['Other'][1]])
     purpose_es = MultiCheckboxField(
-        '1. ¿Con qué fin quieres aprender Python?',
+        '1. ¿Con qué finalidad quieres aprender Python?',
         choices=[
             data["purpose"]["Work"][2],
             data["purpose"]['Personal Projects'][2],
             data["purpose"]['Curiosity'][2],
             data["purpose"]['Other'][2]])
 
-    purpose_other = StringField(
+    purpose_other = TextAreaField(
         "1.1. Please explain, in case you chose 'Other'.")
 
-    purpose_other_pt = StringField(
+    purpose_other_pt = TextAreaField(
         "1.1. Explica no caso de teres escolhido 'Outro'.")
 
-    purpose_other_es = StringField(
+    purpose_other_es = TextAreaField(
         "1.1. Explica si has elegido 'Otro'.")
 
     hours_per_week = MultiCheckboxField(
@@ -184,7 +187,7 @@ class PythonClassesForm(FlaskForm):
             data["subject"]["Python basics"][1],
             data["subject"]["GUI's (Graphic User Interface) development"][1],
             data["subject"]["Data Analysis"][1],
-            data["subject"]["Web Development"][1],
+            data["subject"]["Web Development"][0],
             data["subject"]["Other"][1]])
 
     subject_es = MultiCheckboxField(
@@ -196,13 +199,13 @@ class PythonClassesForm(FlaskForm):
             data["subject"]["Web Development"][1],
             data["subject"]["Other"][2]])
 
-    subject_other = StringField(
+    subject_other = TextAreaField(
         "4.1. Please explain, in case you chose 'Other'.")
 
-    subject_other_pt = StringField(
+    subject_other_pt = TextAreaField(
         "4.1. Explica no caso de teres escolhido 'Outro'.")
 
-    subject_other_es = StringField(
+    subject_other_es = TextAreaField(
         "4.1. Explica si has elegido 'Otro'.")
 
     pay = SelectField(
@@ -250,13 +253,13 @@ class PythonClassesForm(FlaskForm):
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][2],
             data["pay_how_much"]["Other"][2]])
 
-    pay_how_much_other = StringField(
+    pay_how_much_other = TextAreaField(
         "5.2. Please explain, in case you chose 'Other'.")
 
-    pay_how_much_other_pt = StringField(
+    pay_how_much_other_pt = TextAreaField(
         "5.2. Explica no caso de teres escolhido 'Outro'.")
 
-    pay_how_much_other_es = StringField(
+    pay_how_much_other_es = TextAreaField(
         "5.2. Explica si has elegido 'Otro'.")
 
     pay_premium = SelectField(
@@ -360,7 +363,7 @@ class PythonClassesForm(FlaskForm):
 
     email_es = StringField(
         """9. Si deseas ser contactado(a) para más
-        informaciones, deja aquí tu email..""",
+        informaciones, deja aquí tu email.""",
         validators=[
             Regexp(
                 EMAIL_REGEX,
@@ -370,6 +373,8 @@ class PythonClassesForm(FlaskForm):
 
     observations_pt = TextAreaField("10. Deixa alguma nota adicional.")
 
-    observations_es = TextAreaField("10. Escriba cualquier observación.")
+    observations_es = TextAreaField("10. Escribe cualquier observación.")
 
     submit = SubmitField('Submit')
+    submit_pt = SubmitField('Enviar')
+    submit_es = SubmitField('Enviar')
