@@ -1,0 +1,67 @@
+{
+    "purpose":{
+        "Work": ["Work", "Trabalho", "Trabajo"],
+        "Personal Projects": [
+            "Personal Projects", 
+            "Projectos Pessoais",
+            "Proyetos Personales"],
+        "Curiosity": ["Curiosity", "Curiosidade", "Curiosidad"],
+        "Other": ["Other", "Outro", "Otro"]},
+    "site_remote":{
+        "Remote": ["Remote", "Remoto"],
+        "On-site": ["On-site", "Presencial"]},
+    "subject": {
+        "Python basics": [
+            "Python basics", 
+            "Bases de Python"],
+        "GUI's (Graphic User Interface) development": [
+            "GUI's (Graphic User Interface) development",
+            "Criação de GUI's (Graphic User Interface)",
+            "Desarrollo de GUI's (Graphic User Interface)"],
+        "Data Analysis": [
+            "Data Analysis",
+            "Análise de dados",
+            "Análisis de datos"],
+        "Web Development": [
+            "Web Development",
+            "Desarrollo web"],
+        "Other": ["Other", "Outro", "Otro"]},
+    "pay":{
+        "Yes": ["Yes", "Sim", "Sí"],
+        "No": ["No", "Não", "No"]},
+    "pay_how_much": {
+        "8 - 15€ per week":[
+            "8 - 15€ per week", 
+            "8 - 15€ por semana", 
+            "8 - 15€ a la semana"],
+        "20 - 30€ per month": [
+            "20 - 30€ per month", 
+            "20 - 30€ por mês",
+            "20 - 30€ al mes"],
+        "30 - 40€ per month": [
+            "30 - 40€ per month", 
+            "30 - 40€ por mês",
+            "30 - 40€ al mes"],
+        "5 - 10€ per session (1-2 hours)": [
+            "5 - 10€ per session (1-2 hours)", 
+            "5 - 10€ por sessão (1-2  horas)",
+            "5 - 10€ a la session (1-2  horas)"],            
+        "Other": ["Other", "Outro", "Otro"]},
+    "pay_premium":{
+        "Yes": ["Yes", "Sim", "Sí"],
+        "No": ["No", "Não", "No"],
+        "Maybe": ["Maybe", "Talvez", "Quizás"]},
+    "when": {
+        "During the week": [
+            "During the week", 
+            "Durante a semana", 
+            "Entre semana"],
+        "Weekends": [
+            "Weekends",
+            "Fins de semana",
+            "Fines de semana"]},
+    "when_hours": {
+        "Morning": ["Morning", "De manhã", "Por la mañana"],
+        "Afternoon": ["Afternoon", "Há tarde", "Por la tarde"],
+        "Evening": ["Evening", "Fim da tarde/noite", "Fin de la tarde/noche"]}  
+}

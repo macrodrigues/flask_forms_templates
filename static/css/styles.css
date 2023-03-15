@@ -1,9 +1,9 @@
 /* Base HTML Components */
 .page-container {
-    background-color: rgba(255, 255, 255, 0.911);
+    background-color: rgba(255, 255, 255, 0.952);
     margin: 7% 15% 7% 15%;
     border-radius: 20px;
-    min-width: 210px;
+    /* min-width: 210px; */
 }
 
 .lang-container {
@@ -54,11 +54,10 @@ a:hover {
 }
 
 .question-container {
-    display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    text-align: left;
     margin-top: 2%;
-    text-align: center;
 }
 
 .labels-container {
@@ -129,4 +128,14 @@ a:hover {
     display: flex;
     padding-bottom: 5%;
 }
+
+.ul-custom {
+    text-align: left;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+input[type=checkbox] {
+    accent-color: #3a92b4;
+  }
 

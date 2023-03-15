@@ -22,10 +22,10 @@
                 <p class = "labels-container">
                     {{ form.purpose.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.purpose(class_='form-control', style="width:50%;") }} 
+                    {{ form.purpose(class_= 'ul-custom') }} 
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.purpose_other.label(class_='labels-lower') }} 
                     <br> 
@@ -36,31 +36,31 @@
                 <p class = "labels-container">
                     {{ form.hours_per_week.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.hours_per_week(class_='form-control', style="width:20%;") }}
+                    {{ form.hours_per_week(class_= 'ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
                     {{ form.site_remote.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.site_remote(class_='form-control', style="width:30%;") }} 
+                    {{ form.site_remote(class_='ul-custom') }} 
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.distance_onsite.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.distance_onsite(class_='form-control', style="width:30%;") }}
+                    {{ form.distance_onsite(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
                     {{ form.subject.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.subject(class_='form-control', style="width:60%;") }}
+                    {{ form.subject(class_='ul-custom') }}
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.subject_other.label(class_='labels-lower') }} 
                     <br> 
@@ -74,21 +74,21 @@
                     {{ form.pay(class_='form-control', style="width:20%;") }}
                 </p>
             </div> 
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.pay_how_much.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.pay_how_much(class_='form-control') }}
+                    {{ form.pay_how_much(class_='ul-custom') }}
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.pay_how_much_other.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.pay_how_much_other(class_='form-control') }}
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%; text-align:left;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.pay_premium.label(class_='labels-lower') }} 
                     <br> 
@@ -99,21 +99,21 @@
                 <p class = "labels-container">
                     {{ form.when.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.when(class_='form-control', style="width:50%;") }}
+                    {{ form.when(class_='ul-custom') }}
                 </p>
             </div>
-            <div class="question-container" style="margin-left: 2%;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.when_hours.label(class_='labels-lower') }} 
                     <br> 
-                    {{ form.when_hours(class_='form-control') }}
+                    {{ form.when_hours(class_='ul-custom') }}
                 </p>
             </div>
             <div class="question-container">
                 <p class = "labels-container">
                     {{ form.age.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.age(class_='form-control', style="width:50%;") }}
+                    {{ form.age(class_='form-control', style="width:20%;") }}
                 </p>
             </div>
             <div class="question-container">
@@ -123,14 +123,21 @@
                     {{ form.location(class_='form-control', style="width:50%;") }}
                 </p>
             </div>
-            <div class="question-container" style="text-align:left;">
+            <div class="question-container">
                 <p class = "labels-container">
                     {{ form.email.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.email(class_='form-control', style="width:50%;") }}
                     <span class= 'error'>{{ form.email.errors.0 }}</span>
                 </p>
-            </div> 
+            </div>
+            <div class="question-container">
+                <p class = "labels-container">
+                    {{ form.observations.label(class_='labels-higher') }} 
+                    <br> 
+                    {{ form.observations(class_='form-control', style="width:50%;") }}
+                </p>
+            </div>              
             <div class="submit-container" style="justify-content: center;">
                 {{ form.submit(class_= 'btn btn-info submit') }}
             </div>
