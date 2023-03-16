@@ -141,3 +141,10 @@ input[type=checkbox] {
     accent-color: #3a92b4;
   }
 
+.success-container {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+

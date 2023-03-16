@@ -37,6 +37,7 @@
                     {{ form.hours_per_week.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.hours_per_week(class_= 'ul-custom') }}
+                    <span class= 'error'>{{ form.hours_per_week.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -44,6 +45,7 @@
                     {{ form.site_remote.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.site_remote(class_='ul-custom') }} 
+                    <span class= 'error'>{{ form.site_remote.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -51,6 +53,7 @@
                     {{ form.distance_onsite.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.distance_onsite(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.distance_onsite.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -58,6 +61,7 @@
                     {{ form.subject.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.subject(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.subject.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -79,6 +83,7 @@
                     {{ form.pay_how_much.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.pay_how_much(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.pay_how_much.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -100,6 +105,7 @@
                     {{ form.when.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.when(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.when.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -107,6 +113,7 @@
                     {{ form.when_hours.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.when_hours(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.when_hours.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">

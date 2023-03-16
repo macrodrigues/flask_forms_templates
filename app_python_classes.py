@@ -5,8 +5,10 @@ from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from forms.form_python_classes.form_python_classes import PythonClassesForm
+from forms.form_python_classes.form_python_classes import PythonClassesFormPT
+from forms.form_python_classes.form_python_classes import PythonClassesFormES
+from forms.form_python_classes.data_handler import write_data
 import dotenv
-
 dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
@@ -31,7 +33,10 @@ def send_email_results():
 
 def render_page(lang, html):
     """Render page. Takes the language and html file as inputs."""
-    form = PythonClassesForm()
+    forms_per_lang = {
+        'en': PythonClassesForm(),
+        'pt': PythonClassesFormPT(),
+        'es': PythonClassesFormES()}
     lang_dict = {
         'pt': "success_pt.html",
         'en': "success_en.html",
@@ -40,9 +45,9 @@ def render_page(lang, html):
         'pt': "Alguns campos estão incompletos ou em falta.",
         'en': "Some fields are incomplete or missing.",
         'es': "Algunos campos están incompletos o faltan."}
+    form = forms_per_lang[lang]
     current_year = dt.datetime.now().year
     if form.is_submitted():  # if form is submitted
-        print(form.purpose.data)
         if form.validate():  # if form is validated
             send_email_results()
             return render_template(lang_dict[lang])

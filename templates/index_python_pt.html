@@ -22,7 +22,8 @@
                 <p class = "labels-container">
                     {{ form.purpose_pt.label(class_='labels-higher') }} 
                     <br> 
-                    {{ form.purpose_pt(class_= 'ul-custom') }} 
+                    {{ form.purpose_pt(class_= 'ul-custom') }}
+                    <span class= 'error'>{{ form.purpose_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -37,6 +38,7 @@
                     {{ form.hours_per_week_pt.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.hours_per_week_pt(class_= 'ul-custom') }}
+                    <span class= 'error'>{{ form.hours_per_week_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -44,6 +46,7 @@
                     {{ form.site_remote_pt.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.site_remote_pt(class_='ul-custom') }} 
+                    <span class= 'error'>{{ form.site_remote_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -51,6 +54,7 @@
                     {{ form.distance_onsite_pt.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.distance_onsite_pt(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.distance_onsite_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -58,6 +62,7 @@
                     {{ form.subject_pt.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.subject_pt(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.subject_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -79,6 +84,7 @@
                     {{ form.pay_how_much_pt.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.pay_how_much_pt(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.pay_how_much_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -100,6 +106,7 @@
                     {{ form.when_pt.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.when_pt(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.when_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -107,6 +114,7 @@
                     {{ form.when_hours_pt.label(class_='labels-lower') }} 
                     <br> 
                     {{ form.when_hours_pt(class_='ul-custom') }}
+                    <span class= 'error'>{{ form.when_hours_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
@@ -128,7 +136,7 @@
                     {{ form.email_pt.label(class_='labels-higher') }} 
                     <br> 
                     {{ form.email_pt(class_='form-control', style="width:50%;") }}
-                    <span class= 'error'>{{ form.email.errors.0 }}</span>
+                    <span class= 'error'>{{ form.email_pt.errors.0 }}</span>
                 </p>
             </div>
             <div class="question-container">
