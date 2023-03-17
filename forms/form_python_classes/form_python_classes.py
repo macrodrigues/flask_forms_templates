@@ -79,6 +79,7 @@ FREGUESIAS = [
             'Other/Outro/Otro']
 FREGUESIAS.sort()
 EMAIL_REGEX = "(^$|^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"
+INTEGERS_REGEX = "^(\d*|\d+\.\d{0,3}|\d*\.\d{1,3})$"  # number + empty space
 ERROR_ONE_OPTION_EN = "At least one option must be selected"
 ERROR_ONE_OPTION_PT = "Seleciona pelo menos uma opção."
 ERROR_ONE_OPTION_ES = "Selecciona al menos una opción."
@@ -130,9 +131,7 @@ class PythonClassesForm(FlaskForm):
     distance_onsite = MultiCheckboxField(
         """3.1. If you chose 'on-site',
         how many km would you be willing to do?""",
-        choices=['0 - 5km', '0 - 10km', '0 - 20km'],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_EN)])
+        choices=['0 - 5km', '0 - 10km', '0 - 20km'])
 
     subject = MultiCheckboxField(
         "4. Which subject would you prefer to master with Python?",
@@ -163,9 +162,7 @@ class PythonClassesForm(FlaskForm):
             data["pay_how_much"]["20 - 30€ per month"][0],
             data["pay_how_much"]["30 - 40€ per month"][0],
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][0],
-            data["pay_how_much"]["Other"][0]],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_EN)])
+            data["pay_how_much"]["Other"][0]])
 
     pay_how_much_other = TextAreaField(
         "5.2. Please explain, in case you chose 'Other'.")
@@ -195,7 +192,9 @@ class PythonClassesForm(FlaskForm):
         validators=[
             DataRequired(message=ERROR_ONE_OPTION_EN)])
 
-    age = StringField("7. Can you please provide your age?")
+    age = StringField(
+        "7. Can you please provide your age?",
+        validators=[Regexp(INTEGERS_REGEX, message='Wrong format.')])
 
     location = SelectField(
         "8. Can you please provide your location?",
@@ -247,9 +246,7 @@ class PythonClassesFormPT(FlaskForm):
     distance_onsite_pt = MultiCheckboxField(
         """3.1. Se escolheste 'presencial', quantos km estarias disposto(a) 
         a percorrer?""",
-        choices=['0 - 5km', '0 - 10km', '0 - 20km'],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_PT)])
+        choices=['0 - 5km', '0 - 10km', '0 - 20km'])
 
     subject_pt = MultiCheckboxField(
         "4. Quais os temas que gostarias de aprofundar com Python?",
@@ -280,9 +277,7 @@ class PythonClassesFormPT(FlaskForm):
             data["pay_how_much"]["20 - 30€ per month"][1],
             data["pay_how_much"]["30 - 40€ per month"][1],
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][1],
-            data["pay_how_much"]["Other"][1]],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_PT)])
+            data["pay_how_much"]["Other"][1]])
 
     pay_how_much_other_pt = TextAreaField(
         "5.2. Explica no caso de teres escolhido 'Outro'.")
@@ -313,7 +308,9 @@ class PythonClassesFormPT(FlaskForm):
         validators=[
             DataRequired(message=ERROR_ONE_OPTION_PT)])
 
-    age_pt = StringField("7. Qual é a tua idade?")
+    age_pt = StringField(
+        "7. Qual é a tua idade?",
+        validators=[Regexp(INTEGERS_REGEX, message='Formato incorrecto.')])
 
     location_pt = SelectField(
         "8. Qual é a tua localização?",
@@ -365,9 +362,7 @@ class PythonClassesFormES(FlaskForm):
     distance_onsite_es = MultiCheckboxField(
         """3.1. Si has eligido 'presencial', ¿cuantos kilómetros 
         estarías dispuesto(a) a hacer?""",
-        choices=['0 - 5km', '0 - 10km', '0 - 20km'],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_ES)])
+        choices=['0 - 5km', '0 - 10km', '0 - 20km'])
 
     subject_es = MultiCheckboxField(
         "4. ¿Qué temas te gustaría profundizar con Python?",
@@ -398,9 +393,7 @@ class PythonClassesFormES(FlaskForm):
             data["pay_how_much"]["20 - 30€ per month"][2],
             data["pay_how_much"]["30 - 40€ per month"][2],
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][2],
-            data["pay_how_much"]["Other"][2]],
-        validators=[
-            DataRequired(message=ERROR_ONE_OPTION_ES)])
+            data["pay_how_much"]["Other"][2]])
 
     pay_how_much_other_es = TextAreaField(
         "5.2. Explica si has elegido 'Otro'.")
@@ -431,7 +424,9 @@ class PythonClassesFormES(FlaskForm):
         validators=[
             DataRequired(message=ERROR_ONE_OPTION_ES)])
 
-    age_es = StringField("7. ¿Cuántos años tienes?")
+    age_es = StringField(
+        "7. ¿Cuántos años tienes?",
+        validators=[Regexp(INTEGERS_REGEX, message='Formato incorrecto.')])
 
     location_es = SelectField(
         "8. ¿Cuál es tu ubicación?",
