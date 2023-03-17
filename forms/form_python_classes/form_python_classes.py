@@ -1,4 +1,4 @@
-"""Script with the class for the Python Classes Form."""
+"""Script with the methods for the Python Classes Form."""
 import json
 import os
 from flask_wtf import FlaskForm
@@ -79,11 +79,15 @@ FREGUESIAS = [
             'Other/Outro/Otro']
 FREGUESIAS.sort()
 EMAIL_REGEX = "(^$|^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"
+ERROR_ONE_OPTION_EN = "At least one option must be selected"
+ERROR_ONE_OPTION_PT = "Seleciona pelo menos uma opção."
+ERROR_ONE_OPTION_ES = "Selecciona al menos una opción."
 
 
 # CHECKBOX
 class MultiCheckboxField(SelectMultipleField):
     """Customized class for multi check boxes."""
+
     widget = widgets.ListWidget(prefix_label=False)
     option_widget = widgets.CheckboxInput()
 
@@ -104,7 +108,7 @@ class PythonClassesForm(FlaskForm):
             data["purpose"]['Curiosity'][0],
             data["purpose"]['Other'][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     purpose_other = TextAreaField(
         "1.1. Please explain, in case you chose 'Other'.")
@@ -113,7 +117,7 @@ class PythonClassesForm(FlaskForm):
         '2. How many hours a week would you like to have classes?',
         choices=['1h - 2h', '2h - 3h', '3h - 4h', '4h +'],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     site_remote = MultiCheckboxField(
         '3. Would You rather have on-site classes or remotely?',
@@ -121,14 +125,14 @@ class PythonClassesForm(FlaskForm):
             data["site_remote"]["Remote"][0],
             data["site_remote"]["On-site"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     distance_onsite = MultiCheckboxField(
         """3.1. If you chose 'on-site',
         how many km would you be willing to do?""",
         choices=['0 - 5km', '0 - 10km', '0 - 20km'],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     subject = MultiCheckboxField(
         "4. Which subject would you prefer to master with Python?",
@@ -139,7 +143,7 @@ class PythonClassesForm(FlaskForm):
             data["subject"]["Web Development"][0],
             data["subject"]["Other"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     subject_other = TextAreaField(
         "4.1. Please explain, in case you chose 'Other'.")
@@ -150,7 +154,7 @@ class PythonClassesForm(FlaskForm):
             data["pay"]["Yes"][0],
             data["pay"]["No"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     pay_how_much = MultiCheckboxField(
         "5.1. If 'Yes', how much would you be willing to pay?",
@@ -161,7 +165,7 @@ class PythonClassesForm(FlaskForm):
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][0],
             data["pay_how_much"]["Other"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     pay_how_much_other = TextAreaField(
         "5.2. Please explain, in case you chose 'Other'.")
@@ -180,7 +184,7 @@ class PythonClassesForm(FlaskForm):
             data["when"]["During the week"][0],
             data["when"]["Weekends"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     when_hours = MultiCheckboxField(
         "6.1. At what time of the day?",
@@ -189,7 +193,7 @@ class PythonClassesForm(FlaskForm):
             data["when_hours"]["Afternoon"][0],
             data["when_hours"]["Evening"][0]],
         validators=[
-            DataRequired(message="At least one option must be selected")])
+            DataRequired(message=ERROR_ONE_OPTION_EN)])
 
     age = StringField("7. Can you please provide your age?")
 
@@ -221,7 +225,7 @@ class PythonClassesFormPT(FlaskForm):
             data["purpose"]['Curiosity'][1],
             data["purpose"]['Other'][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     purpose_other_pt = TextAreaField(
         "1.1. Explica no caso de teres escolhido 'Outro'.")
@@ -230,7 +234,7 @@ class PythonClassesFormPT(FlaskForm):
         '2. Quantas horas por semana gostarias de ter aulas?',
         choices=['1h - 2h', '2h - 3h', '3h - 4h', '4h +'],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     site_remote_pt = MultiCheckboxField(
         '3. Preferirias ter aulas à distância ou presenciais?',
@@ -238,14 +242,14 @@ class PythonClassesFormPT(FlaskForm):
             data["site_remote"]["Remote"][1],
             data["site_remote"]["On-site"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     distance_onsite_pt = MultiCheckboxField(
         """3.1. Se escolheste 'presencial', quantos km estarias disposto(a) 
         a percorrer?""",
         choices=['0 - 5km', '0 - 10km', '0 - 20km'],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     subject_pt = MultiCheckboxField(
         "4. Quais os temas que gostarias de aprofundar com Python?",
@@ -256,7 +260,7 @@ class PythonClassesFormPT(FlaskForm):
             data["subject"]["Web Development"][0],
             data["subject"]["Other"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     subject_other_pt = TextAreaField(
         "4.1. Explica no caso de teres escolhido 'Outro'.")
@@ -267,7 +271,7 @@ class PythonClassesFormPT(FlaskForm):
             data["pay"]["Yes"][1],
             data["pay"]["No"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     pay_how_much_pt = MultiCheckboxField(
         "5.1. Se 'sim', quanto é que estarias disposto(a) a pagar?",
@@ -278,7 +282,7 @@ class PythonClassesFormPT(FlaskForm):
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][1],
             data["pay_how_much"]["Other"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     pay_how_much_other_pt = TextAreaField(
         "5.2. Explica no caso de teres escolhido 'Outro'.")
@@ -298,7 +302,7 @@ class PythonClassesFormPT(FlaskForm):
             data["when"]["During the week"][1],
             data["when"]["Weekends"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     when_hours_pt = MultiCheckboxField(
         "6.1. Em que altura do dia?",
@@ -307,7 +311,7 @@ class PythonClassesFormPT(FlaskForm):
             data["when_hours"]["Afternoon"][1],
             data["when_hours"]["Evening"][1]],
         validators=[
-            DataRequired(message="Seleciona pelo menos uma opção.")])
+            DataRequired(message=ERROR_ONE_OPTION_PT)])
 
     age_pt = StringField("7. Qual é a tua idade?")
 
@@ -339,7 +343,7 @@ class PythonClassesFormES(FlaskForm):
             data["purpose"]['Curiosity'][2],
             data["purpose"]['Other'][2]],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     purpose_other_es = TextAreaField(
         "1.1. Explica si has elegido 'Otro'.")
@@ -348,7 +352,7 @@ class PythonClassesFormES(FlaskForm):
         '2. ¿Cuántas horas a la semana te gustaría tener clases?',
         choices=['1h - 2h', '2h - 3h', '3h - 4h', '4h +'],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     site_remote_es = MultiCheckboxField(
         '3. ¿Preferirías recibir clases a distancia o presenciales?',
@@ -356,14 +360,14 @@ class PythonClassesFormES(FlaskForm):
             data["site_remote"]["Remote"][1],
             data["site_remote"]["On-site"][1]],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     distance_onsite_es = MultiCheckboxField(
         """3.1. Si has eligido 'presencial', ¿cuantos kilómetros 
         estarías dispuesto(a) a hacer?""",
         choices=['0 - 5km', '0 - 10km', '0 - 20km'],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     subject_es = MultiCheckboxField(
         "4. ¿Qué temas te gustaría profundizar con Python?",
@@ -374,7 +378,7 @@ class PythonClassesFormES(FlaskForm):
             data["subject"]["Web Development"][1],
             data["subject"]["Other"][2]],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     subject_other_es = TextAreaField(
         "4.1. Explica si has elegido 'Otro'.")
@@ -385,7 +389,7 @@ class PythonClassesFormES(FlaskForm):
             data["pay"]["Yes"][2],
             data["pay"]["No"][2]],
         validators=[
-            DataRequired(message="Seleccione al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     pay_how_much_es = MultiCheckboxField(
         "5.1. Si sí, ¿cuánto estarías dispuesto(a) a pagar?",
@@ -396,7 +400,7 @@ class PythonClassesFormES(FlaskForm):
             data["pay_how_much"]["5 - 10€ per session (1-2 hours)"][2],
             data["pay_how_much"]["Other"][2]],
         validators=[
-            DataRequired(message="Selecciona al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     pay_how_much_other_es = TextAreaField(
         "5.2. Explica si has elegido 'Otro'.")
@@ -416,7 +420,7 @@ class PythonClassesFormES(FlaskForm):
             data["when"]["During the week"][2],
             data["when"]["Weekends"][2]],
         validators=[
-            DataRequired(message="Selecciona al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     when_hours_es = MultiCheckboxField(
         "6.1. ¿En qué momento del día?",
@@ -425,7 +429,7 @@ class PythonClassesFormES(FlaskForm):
             data["when_hours"]["Afternoon"][2],
             data["when_hours"]["Evening"][2]],
         validators=[
-            DataRequired(message="Selecciona al menos una opción.")])
+            DataRequired(message=ERROR_ONE_OPTION_ES)])
 
     age_es = StringField("7. ¿Cuántos años tienes?")
 

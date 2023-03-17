@@ -7,7 +7,7 @@ from flask_mail import Mail
 from forms.form_python_classes.form_python_classes import PythonClassesForm
 from forms.form_python_classes.form_python_classes import PythonClassesFormPT
 from forms.form_python_classes.form_python_classes import PythonClassesFormES
-from forms.form_python_classes.data_handler import write_data
+from forms.form_python_classes.data_handler import write_data_en
 import dotenv
 dotenv.load_dotenv('keys.env')
 
@@ -50,6 +50,7 @@ def render_page(lang, html):
     if form.is_submitted():  # if form is submitted
         if form.validate():  # if form is validated
             send_email_results()
+            write_data_en()
             return render_template(lang_dict[lang])
         else:
             flash(lang_error_dict[lang])
