@@ -34,7 +34,7 @@ def send_email_results():
         recipients=['mac.rodrigues@outlook.com'])
     file = 'forms/form_python_classes/data/output_python_classes.csv'
     with app.open_resource(file) as fp:
-        msg.attach(f"{file}", "text/csv", data=fp.read())
+        msg.attach('python_classes_results.csv', "text/csv", data=fp.read())
 
     # send email
     mail.send(msg)
