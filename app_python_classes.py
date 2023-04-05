@@ -55,7 +55,7 @@ def render_page(lang, html):
             return render_template(lang_dict[lang])
         else:
             flash(lang_error_dict[lang])
-    return render_template(html, year=current_year, form=form)
+    return render_template(html, language=lang, year=current_year, form=form)
 
 
 @app.route("/", methods=["GET", "POST"])

@@ -1,6 +1,5 @@
 """Script to read and write the data from the forms into .csv files."""
 import os
-import json
 import pandas as pd
 from .form_python_classes import PythonClassesForm
 from .form_python_classes import PythonClassesFormPT
@@ -50,5 +49,5 @@ def write_data(lang):
         else:
             values_transf.append(val)
     fields = dict(zip(headers, values_transf))
-    df = pd.DataFrame.from_dict(fields)
+    df = pd.DataFrame(fields, index=[0])
     df.to_csv(OUTPUT)

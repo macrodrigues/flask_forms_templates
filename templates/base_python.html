@@ -47,5 +47,14 @@
 			{%block form%}
 			{%endblock%}
 		</div>
+		<footer>
+			{%if language == 'en'%}
+			<p class="footer-custom"> If you want to know more about the builder behind this form, click <a href="https://www.macrodrigues.xyz" style="color:#3a92b4; font-weight:700">here</a></p>
+			{%elif language == 'pt'%}
+			<p class="footer-custom"> Se quiseres saber mais sobre a pessoa por detrás deste inquérito, clica <a href="https://www.macrodrigues.xyz" style="color:#3a92b4; font-weight:700">aqui</a></p>
+			{%elif language == 'es'%}
+			<p class="footer-custom"> Si quieres saber más sobre la persona que está detrás de esta encuesta, pincha <a href="https://www.macrodrigues.xyz" style="color:#3a92b4; font-weight:700">aquí</a></p>
+			{%endif%}
+		</footer>
 	</body>
 </html>
