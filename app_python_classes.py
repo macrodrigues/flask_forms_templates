@@ -1,9 +1,11 @@
 """Launch the templates on a Flask server."""
 import os
 import datetime as dt
+import smtplib
 from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
-from flask_mail import Mail
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from forms.form_python_classes.form_python_classes import PythonClassesForm
 from forms.form_python_classes.form_python_classes import PythonClassesFormPT
 from forms.form_python_classes.form_python_classes import PythonClassesFormES
@@ -13,23 +15,26 @@ from forms.form_python_classes.data_handler import write_data
 # dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')   # You can use a random key
-app.config['UPLOAD_FOLDER'] = os.path.dirname(
-    os.path.abspath(__file__))  # to add attachments
-app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
-app.config['MAIL_PASSWORD'] = os.getenv("PASS")
-app.config['MAIL_USE_TLS'] = True  # more secure version of SSL.
-app.config['MAIL_USE_SSL'] = False
-
-mail = Mail(app)
+app.secret_key = os.getenv('SECRET_KEY') # You can use a random key
 Bootstrap(app)
+
+OWN_EMAIL = os.getenv('MAIL')
+OWN_PASSWORD = os.getenv('PASS')
 
 
 def send_email_results():
     """Send email with all the inputs."""
-    pass
+    email_message = "Hey"
+    msg = MIMEMultipart()
+    msg['To'] = OWN_EMAIL
+    msg['Subject'] = 'Python Classes'
+    msg.attach(MIMEText(email_message, "plain"))
+    text = msg.as_string()
+    with smtplib.SMTP(host='smtp-mail.outlook.com', port=587) as connection:
+        connection.starttls()
+        connection.login(OWN_EMAIL, OWN_PASSWORD)
+        connection.sendmail(OWN_EMAIL, OWN_EMAIL, text)
+
 
 
 def render_page(lang, html):
