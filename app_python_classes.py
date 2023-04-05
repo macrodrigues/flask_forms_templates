@@ -9,8 +9,8 @@ from forms.form_python_classes.form_python_classes import PythonClassesFormPT
 from forms.form_python_classes.form_python_classes import PythonClassesFormES
 from forms.form_python_classes.data_handler import write_data
 
-import dotenv
-dotenv.load_dotenv('keys.env')
+# import dotenv
+# dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')   # You can use a random key
