@@ -3,6 +3,7 @@ import os
 import datetime as dt
 from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
+from flask_recaptcha import ReCaptcha
 from flask_mail import Mail, Message
 from forms.form_python_classes.form_python_classes import PythonClassesForm
 from forms.form_python_classes.form_python_classes import PythonClassesFormPT
@@ -22,6 +23,9 @@ app.config['MAIL_USERNAME'] = os.getenv("MAIL")
 app.config['MAIL_PASSWORD'] = os.getenv("PASS")
 app.config['MAIL_USE_TLS'] = True  # more secure version of SSL.
 app.config['MAIL_USE_SSL'] = False
+app.config['RECAPTCHA_SITE_KEY'] = os.getenv('key_site')
+app.config['RECAPTCHA_SECRET_KEY'] = os.getenv('key_secret')
+recaptcha = ReCaptcha(app)
 mail = Mail(app)
 Bootstrap(app)
 

@@ -142,7 +142,10 @@
                     <br> 
                     {{ form.observations(class_='form-control', style="width:50%;") }}
                 </p>
-            </div>                       
+            </div>
+            <div class="question-container">
+                {{recaptcha}}
+            </div>                                 
             <div class="submit-container" style="justify-content: center;">
                 {{ form.submit(class_= 'btn btn-info submit') }}
             </div>

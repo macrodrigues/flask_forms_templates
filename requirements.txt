@@ -1,6 +1,7 @@
 Flask
 flask_mail
 flask_bootstrap
+flask_recaptcha
 flask_wtf
 wtforms
 pandas
