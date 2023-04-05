@@ -16,7 +16,7 @@
     </h4>
     <div class="form-container">
         <form method="POST" enctype="multipart/form-data" action="{{ url_for('home_en') }}" novalidate>
-            {{ form.csrf_token }}
+            {{ form.csrf_token }}                              
             <div class="question-container">
                 <p class = "labels-container">
                     {{ form.purpose.label(class_='labels-higher') }} 
@@ -143,9 +143,9 @@
                     {{ form.observations(class_='form-control', style="width:50%;") }}
                 </p>
             </div>
-            <div class="question-container">
+            <div class="question-container" style="display:flex; justify-content: center; margin-top:10%">
                 {{recaptcha}}
-            </div>                                 
+            </div>
             <div class="submit-container" style="justify-content: center;">
                 {{ form.submit(class_= 'btn btn-info submit') }}
             </div>

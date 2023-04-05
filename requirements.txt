@@ -1,4 +1,4 @@
-Flask
+Flask==2.0.2
 flask_mail
 flask_bootstrap
 Jinja2==3.0.3

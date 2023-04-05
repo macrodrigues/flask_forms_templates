@@ -14,7 +14,7 @@ from forms.form_python_classes.data_handler import write_data
 # dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY')   # You can use a random key
+app.secret_key = 'fdsgdg' # os.getenv('SECRET_KEY')   # You can use a random key
 # app.config['UPLOAD_FOLDER'] = os.path.dirname(
 #     os.path.abspath(__file__))  # to add attachments
 app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
@@ -23,6 +23,7 @@ app.config['MAIL_USERNAME'] = os.getenv("MAIL")
 app.config['MAIL_PASSWORD'] = os.getenv("PASS")
 app.config['MAIL_USE_TLS'] = True  # more secure version of SSL.
 app.config['MAIL_USE_SSL'] = False
+app.config['RECAPTCHA_ENABLED'] = True 
 app.config['RECAPTCHA_SITE_KEY'] = os.getenv('key_site')
 app.config['RECAPTCHA_SECRET_KEY'] = os.getenv('key_secret')
 recaptcha = ReCaptcha(app)
