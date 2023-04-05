@@ -14,7 +14,7 @@ from forms.form_python_classes.data_handler import write_data
 # dotenv.load_dotenv('keys.env')
 
 app = Flask(__name__)
-app.secret_key = 'fdsgdg' # os.getenv('SECRET_KEY')   # You can use a random key
+app.secret_key = os.getenv('SECRET_KEY')   # You can use a random key
 # app.config['UPLOAD_FOLDER'] = os.path.dirname(
 #     os.path.abspath(__file__))  # to add attachments
 app.config['MAIL_SERVER'] = os.getenv("MAIL_SERVER")
