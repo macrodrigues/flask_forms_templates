@@ -3,3 +3,4 @@ flask_mail
 flask_bootstrap
 flask_wtf
 wtforms
+pandas
