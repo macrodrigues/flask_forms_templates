@@ -1,7 +1,7 @@
 """Launch the templates on a Flask server."""
 import os
 import datetime as dt
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, request
 from flask_bootstrap import Bootstrap
 from flask_recaptcha import ReCaptcha
 from flask_mail import Mail, Message
@@ -60,11 +60,15 @@ def render_page(lang, html):
         'es': "Algunos campos están incompletos o faltan."}
     form = forms_per_lang[lang]
     current_year = dt.datetime.now().year
-    if form.is_submitted():  # if form is submitted
-        if form.validate():  # if form is validated
-            write_data(lang)
-            send_email_results()
-            return render_template(lang_dict[lang])
+    if request.method == 'POST':
+        if recaptcha.verify():
+            if form.is_submitted():  # if form is submitted
+                if form.validate():  # if form is validated
+                    write_data(lang)
+                    send_email_results()
+                    return render_template(lang_dict[lang])
+                else:
+                    flash(lang_error_dict[lang])
         else:
             flash(lang_error_dict[lang])
     return render_template(html, language=lang, year=current_year, form=form)
