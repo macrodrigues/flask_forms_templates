@@ -30,7 +30,6 @@ def send_email_results():
     """Send email with all the inputs."""
     msg = Message(
         "Python Classes",
-        sender='corkforms',
         recipients=['mac.rodrigues@outlook.com'])
     file = 'forms/form_python_classes/data/output_python_classes.csv'
     with app.open_resource(file) as fp:
