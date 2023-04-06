@@ -52,4 +52,4 @@ def write_data(lang):
             values_transf.append(val)
     fields = dict(zip(headers, values_transf))
     df = pd.DataFrame(fields, index=[0])
-    df.to_csv(OUTPUT, encoding='utf-8')
+    df.to_csv(OUTPUT, encoding='utf-8-sig')
