@@ -31,17 +31,17 @@
         "No": ["No", "Não", "No"]},
     "pay_how_much": {
         "8 - 15€ per week":[
-            "8 - 15€ per week", 
-            "8 - 15€ por semana", 
-            "8 - 15€ a la semana"],
+            "8 - 15€ per week (3-4 hours)", 
+            "8 - 15€ por semana (3-4 horas)", 
+            "8 - 15€ a la semana (3-4 horas)"],
         "20 - 30€ per month": [
-            "20 - 30€ per month", 
-            "20 - 30€ por mês",
-            "20 - 30€ al mes"],
+            "20 - 30€ per month (15-20 hours)", 
+            "20 - 30€ por mês (15-20 horas)",
+            "20 - 30€ al mes (15-20 horas)"],
         "30 - 40€ per month": [
-            "30 - 40€ per month", 
-            "30 - 40€ por mês",
-            "30 - 40€ al mes"],
+            "30 - 40€ per month (15-20 hours)", 
+            "30 - 40€ por mês (15-20 horas)",
+            "30 - 40€ al mes (15-20 horas)"],
         "5 - 10€ per session (1-2 hours)": [
             "5 - 10€ per session (1-2 hours)", 
             "5 - 10€ por sessão (1-2  horas)",
